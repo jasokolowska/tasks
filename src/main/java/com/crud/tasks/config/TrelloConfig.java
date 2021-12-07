@@ -4,6 +4,7 @@ import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+@CrossOrigin("*")
 @Getter
 @Component
 public class TrelloConfig {

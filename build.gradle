@@ -19,6 +19,13 @@ jar {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web:2.6.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.6.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.1'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation('io.springfox:springfox-swagger2:2.9.2')
+	implementation('io.springfox:springfox-swagger-ui:2.9.2')
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.1'
 
 	compileOnly 'org.projectlombok:lombok:1.18.22'
@@ -27,15 +34,8 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok:1.18.22'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
 
-	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.6.1'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.1'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:2.6.1'
-
 	runtimeOnly 'mysql:mysql-connector-java:8.0.25'
 	runtimeOnly 'org.postgresql:postgresql:42.3.1'
-
-	implementation('io.springfox:springfox-swagger2:2.9.2')
-	implementation('io.springfox:springfox-swagger-ui:2.9.2')
 
 //	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 }

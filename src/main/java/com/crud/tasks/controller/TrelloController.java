@@ -7,6 +7,7 @@ import com.crud.tasks.trello.client.TrelloClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.spring.web.json.Json;
 
 import java.util.List;
 
@@ -23,8 +24,8 @@ public class TrelloController {
          return trelloClient.getTrelloBoards();
     }
 
-//    @PostMapping("createTrelloCard")
-    @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "createTrelloCard", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
         return trelloClient.createNewCard(trelloCardDto);
     }

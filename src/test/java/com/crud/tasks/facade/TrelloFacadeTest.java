@@ -68,7 +68,7 @@ class TrelloFacadeTest {
                 List.of(new TrelloBoardDto("1", "test", trelloLists));
 
         List<TrelloList> mappedTrelloLists =
-                List.of(new TrelloList("1", "test_list", false));
+                List.of(new TrelloList("1", "list", false));
 
         List<TrelloBoard> mappedTrelloBoards =
                 List.of(new TrelloBoard("1", "test", mappedTrelloLists));
@@ -102,6 +102,21 @@ class TrelloFacadeTest {
     public void shouldCreateCard() {
         //Given
         TrelloCardDto trelloCardDto = new TrelloCardDto("new card", "test", "1", "1A");
+        TrelloCard trelloCard = new TrelloCard("new card", "test", "1", "1A");
+        CreatedTrelloCardDto createdTrelloCard = new CreatedTrelloCardDto("1", "new card", "short url");
+
+        when(trelloMapper.mapToCard(trelloCardDto)).thenReturn(trelloCard);
+        when(trelloMapper.mapToCardDto(trelloCard)).thenReturn(trelloCardDto);
+        when(trelloService.createTrelloCard(trelloCardDto)).thenReturn(createdTrelloCard);
+
+        //When
+        CreatedTrelloCardDto cardDto = trelloFacade.createCard(trelloCardDto);
+
+        //Then
+        assertNotNull(cardDto);
+        assertTrue(cardDto.getName().equalsIgnoreCase("new card"));
+        assertTrue(cardDto.getShortUrl().equalsIgnoreCase("short url"));
+
     }
 
 }

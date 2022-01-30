@@ -43,5 +43,6 @@ class TaskMapperTest {
         //Then
         assertEquals(3, taskDtos.size());
         assertEquals("task 2", taskDtos.get(1).getTitle());
+        assertEquals("description", taskDtos.get(1).getContent());
     }
 }

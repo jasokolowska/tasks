@@ -1,6 +1,7 @@
 package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Task;
+import com.crud.tasks.domain.TaskDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,9 +20,9 @@ class DbServiceTest {
     @Test
     void testGetAllTasks() {
         //Given
-        Task task1 = new Task(1L, "task 1", "content 1");
-        Task task2 = new Task(2L, "task 2", "content 2");
-        Task task3 = new Task(3L, "task 3", "content 3");
+        Task task1 = new Task("task 1", "content 1");
+        Task task2 = new Task("task 2", "content 2");
+        Task task3 = new Task("task 3", "content 3");
         dbService.saveTask(task1);
         dbService.saveTask(task2);
         dbService.saveTask(task3);
@@ -41,7 +42,7 @@ class DbServiceTest {
     @Test
     void getTask() {
         //Given
-        Task task1 = new Task(1L, "task 1", "content 1");
+        Task task1 = new Task("task 1", "content 1");
         dbService.saveTask(task1);
 
         //When
@@ -51,7 +52,7 @@ class DbServiceTest {
         assertEquals("task 1", result.get().getTitle());
 
         //CleanUp
-        dbService.deleteTask(task1.getId());
+        dbService.deleteTask(result.get().getId());
 
     }
 

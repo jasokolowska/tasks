@@ -7,7 +7,7 @@ plugins {
 
 group = 'com.crud'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '8'
+sourceCompatibility = "1.9"
 
 repositories {
 	mavenCentral()
@@ -43,3 +43,4 @@ dependencies {
 test {
 	useJUnitPlatform()
 }
+targetCompatibility = JavaVersion.VERSION_1_9

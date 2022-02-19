@@ -2,6 +2,7 @@ package com.crud.tasks.service;
 
 import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
+import com.crud.tasks.repository.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,6 +17,9 @@ class DbServiceTest {
 
     @Autowired
     private DbService dbService;
+
+    @Autowired
+    private TaskRepository taskRepository;
 
     @Test
     void testGetAllTasks() {

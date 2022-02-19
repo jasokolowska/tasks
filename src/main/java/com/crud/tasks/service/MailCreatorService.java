@@ -51,7 +51,9 @@ public class MailCreatorService {
         List<Task> tasks = taskRepository.findAll();
 
         Context context = new Context();
+        context.setVariable("message", message);
         context.setVariable("tasks_list", tasks);
+        context.setVariable("admin_config", adminConfig);
         return templateEngine.process("mail/trello-task-summary-mail", context);
     }
 
